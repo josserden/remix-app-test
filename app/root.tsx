@@ -1,13 +1,36 @@
+import { json } from "@remix-run/node";
+import React from "react";
 import {
-  Form,
   Links,
   LiveReload,
   Meta,
+  Outlet,
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import { cssBundleHref } from "@remix-run/css-bundle";
+import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
 
-export default function App() {
+import { Container } from "~/components/Container/Container";
+import { Header } from "~/components/Header/Header";
+
+import "modern-normalize/modern-normalize.css";
+import { createCart } from "~/services/createCart";
+import { getSession } from "~/services/session.server";
+import style from "~/styles/global.module.css";
+
+export const links: LinksFunction = () => [
+  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
+];
+
+export const loader = async ({ request }: LoaderFunctionArgs) => {
+  const session = await getSession(request.headers.get("Cookie"));
+  const cart = createCart(session);
+
+  return json({ cart: cart.items() });
+};
+
+export default function App(): React.JSX.Element {
   return (
     <html lang="en">
       <head>
@@ -16,35 +39,15 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
-        <div id="sidebar">
-          <h1>Remix Contacts</h1>
-          <div>
-            <Form id="search-form" role="search">
-              <input
-                id="q"
-                aria-label="Search contacts"
-                placeholder="Search"
-                type="search"
-                name="q"
-              />
-              <div id="search-spinner" aria-hidden hidden={true} />
-            </Form>
-            <Form method="post">
-              <button type="submit">New</button>
-            </Form>
-          </div>
-          <nav>
-            <ul>
-              <li>
-                <a href={`/contacts/1`}>Your Name</a>
-              </li>
-              <li>
-                <a href={`/contacts/2`}>Your Friend</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+
+      <body className={style.body}>
+        <Header />
+
+        <section className={style.section}>
+          <Container>
+            <Outlet />
+          </Container>
+        </section>
 
         <ScrollRestoration />
         <Scripts />

@@ -1,0 +1,105 @@
+.productCard {
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
+
+  border: 1px solid #e1e1e1;
+  border-radius: 10px;
+
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  background: #fff;
+  margin-bottom: 20px;
+}
+
+.productCardLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.productCardImg {
+  width: 100%;
+  height: auto;
+
+  object-fit: cover;
+  aspect-ratio: 1.33;
+}
+
+.productInfo {
+  padding: 15px;
+}
+
+.productName {
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: bold;
+
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.productDescription {
+  font-size: 0.9rem;
+  color: #666;
+  height: 1.2rem;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+
+.productPrice {
+  font-size: 1.1rem;
+  font-weight: bold;
+
+  color: #e44d26;
+  margin-bottom: 10px;
+}
+
+.addToCartButton {
+  display: block;
+  width: 100%;
+
+  padding: 10px;
+  text-align: center;
+  background: #e44d26;
+  color: white;
+
+  border: 0;
+  cursor: pointer;
+
+  text-decoration: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  transition: background 0.3s ease;
+}
+
+.addToCartButton:hover {
+  background: #cc3a20;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+
+  padding: 2rem;
+}
+
+.pagination-link {
+  padding: 8px 16px;
+  margin: 0 4px;
+
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+}
+
+.paginationLink:hover {
+  background-color: #f2f2f2;
+}
