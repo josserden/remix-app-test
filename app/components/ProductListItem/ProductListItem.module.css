@@ -14,8 +14,12 @@
 }
 
 .productCardLink {
-  text-decoration: none;
   color: inherit;
+}
+
+.productCardLink:hover,
+.productCardLink:focus {
+  text-decoration: none;
 }
 
 .productCardImg {
@@ -79,8 +83,14 @@
   transition: background 0.3s ease;
 }
 
-.addToCartButton:hover {
+.addToCartButton:hover,
+.addToCartButton:focus{
   background: #cc3a20;
+}
+
+.addToCartButton:disabled {
+  background: #ccc;
+  cursor: not-allowed;
 }
 
 .pagination {

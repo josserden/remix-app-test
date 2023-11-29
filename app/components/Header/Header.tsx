@@ -1,5 +1,5 @@
-import { useRouteLoaderData } from "@remix-run/react";
 import React, { FC } from "react";
+import { Link, useRouteLoaderData } from "@remix-run/react";
 
 import { Container } from "~/components/Container/Container";
 
@@ -18,7 +18,9 @@ export const Header: FC = () => {
     <header className={style.header}>
       <Container>
         <div className={style.headerContainer}>
-          <h1 className={style.headerLogo}>Header</h1>
+          <Link className={style.headerLogo} to={"/"}>
+            Simple Store
+          </Link>
 
           <form className={style.form} action="">
             <input
