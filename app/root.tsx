@@ -1,5 +1,6 @@
-import { json } from "@remix-run/node";
 import React from "react";
+import { cssBundleHref } from "@remix-run/css-bundle";
+import { json } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -8,15 +9,14 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import { cssBundleHref } from "@remix-run/css-bundle";
-import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
 
 import { Container } from "~/components/Container/Container";
 import { Header } from "~/components/Header/Header";
-
-import "modern-normalize/modern-normalize.css";
 import { createCart } from "~/services/createCart";
 import { getSession } from "~/services/session.server";
+
+import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
+import "modern-normalize/modern-normalize.css";
 import style from "~/styles/global.module.css";
 
 export const links: LinksFunction = () => [

@@ -1,10 +1,10 @@
-import { Link } from "@remix-run/react";
 import React from "react";
-import { useLoaderData } from "react-router";
-import { ActionFunctionArgs, json, MetaFunction } from "@remix-run/node";
-import invariant from "tiny-invariant";
-import { createCart } from "~/services/createCart";
 
+import { ActionFunctionArgs, json, MetaFunction } from "@remix-run/node";
+import { Link, useLoaderData } from "@remix-run/react";
+import invariant from "tiny-invariant";
+
+import { createCart } from "~/services/createCart";
 import { getProducts } from "~/services/products.server";
 import { ProductList } from "~/components/ProductList/ProductList";
 import { commitSession, getSession } from "~/services/session.server";
@@ -51,7 +51,7 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Home(): React.JSX.Element {
-  const data = useLoaderData() as ProductsResponse;
+  const data = useLoaderData<typeof loader>();
 
   return <ProductList products={data.products} />;
 }

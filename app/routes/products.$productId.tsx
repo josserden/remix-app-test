@@ -5,7 +5,7 @@ import {
   LoaderFunctionArgs,
   MetaFunction,
 } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, Link } from "@remix-run/react";
 import invariant from "tiny-invariant";
 
 import { ProductPage } from "~/components/ProductPage/ProductPage";
